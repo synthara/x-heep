@@ -1,0 +1,187 @@
+CAPI=2:
+
+name: "synthara:cxr:cxr"
+description: "core-v-mini-mcu cxr peripheral"
+
+# Copyright 2021 OpenHW Group
+# Solderpad Hardware License, Version 2.1, see LICENSE.md for details.
+# SPDX-License-Identifier: Apache-2.0 WITH SHL-2.1
+
+filesets:
+  gf_22fdsoi_rtl:
+    files:
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc20l/GF22FDX_SC7P5T_116CPP_BASE_CSC20L_FDK_RELV02R50/model/verilog/prim.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc20l/GF22FDX_SC7P5T_116CPP_BASE_CSC20L_FDK_RELV02R50/model/verilog/GF22FDX_SC7P5T_116CPP_BASE_CSC20L.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc24l/GF22FDX_SC7P5T_116CPP_BASE_CSC24L_FDK_RELV02R50/model/verilog/GF22FDX_SC7P5T_116CPP_BASE_CSC24L.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc28l/GF22FDX_SC7P5T_116CPP_BASE_CSC28L_FDK_RELV03R50/model/verilog/GF22FDX_SC7P5T_116CPP_BASE_CSC28L.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc32l/GF22FDX_SC7P5T_116CPP_BASE_CSC32L_FDK_RELV03R50/model/verilog/GF22FDX_SC7P5T_116CPP_BASE_CSC32L.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_base_csc36l/GF22FDX_SC7P5T_116CPP_BASE_CSC36L_FDK_RELV03R50/model/verilog/GF22FDX_SC7P5T_116CPP_BASE_CSC36L.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_hpk_csl/GF22FDX_SC7P5T_116CPP_HPK_CSL_FDK_RELV03R50/model/verilog/GF22FDX_SC7P5T_116CPP_HPK_CSL.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_hpkcustom_csl/GF22FDX_SC7P5T_116CPP_HPKCUSTOM_CSL_FDK_RELV00R40/model/verilog/GF22FDX_SC7P5T_116CPP_HPKCUSTOM_CSL.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_lpk_csl/GF22FDX_SC7P5T_116CPP_LPK_CSL_FDK_RELV03R40/model/verilog/GF22FDX_SC7P5T_116CPP_LPK_CSL.v
+    file_type: systemVerilogSource
+  dsl_rtl:
+    files:
+      - ../../../../cxr/src/dsl/rtl/snt_std_func_pkg.sv
+      - ../../../../cxr/src/dsl/rtl/snt_std_if.sv
+      - ../../../../cxr/src/dsl/rtl/snt_icg.sv
+      - ../../../../cxr/src/dsl/rtl/snt_adder_tree_exposed.sv
+      - ../../../../cxr/src/dsl/rtl/snt_arbiter_fixed_priority.sv
+      - ../../../../cxr/src/dsl/rtl/snt_arbiter_fixed_priority_N_dest_with_output_enabled.sv
+      - ../../../../cxr/src/dsl/rtl/snt_arbiter_priority_mask.sv
+      - ../../../../cxr/src/dsl/rtl/snt_arbiter_priority_mask_with_output_enable.sv
+      - ../../../../cxr/src/dsl/rtl/snt_check_onehot.sv
+      - ../../../../cxr/src/dsl/rtl/snt_fifo.sv
+      - ../../../../cxr/src/dsl/rtl/snt_pipeline_val_if.sv
+      - ../../../../cxr/src/dsl/rtl/snt_pipeline_status_if.sv
+      - ../../../../cxr/src/dsl/rtl/snt_retime_stage.sv
+      - ../../../../cxr/src/dsl/rtl/snt_retime_stage_array.sv
+      - ../../../../cxr/src/dsl/rtl/snt_memory_sp.sv
+      - ../../../../cxr/src/dsl/rtl/snt_memory_dp.sv
+      - ../../../../cxr/src/dsl/rtl/snt_leading_zero_counter.sv
+      - ../../../../cxr/src/dsl/rtl/snt_popcount.sv
+      - ../../../../cxr/src/dsl/rtl/snt_poptree.sv
+      - ../../../../cxr/src/dsl/rtl/snt_reset_sync.sv
+      - ../../../../cxr/src/dsl/rtl/snt_serial_in_parallel_out.sv
+      - ../../../../cxr/src/dsl/rtl/snt_cdc.sv
+      - ../../../../cxr/src/dsl/rtl/snt_clock_divider.sv
+      - ../../../../cxr/src/dsl/rtl/snt_to_onehot.sv
+      - ../../../../cxr/src/dsl/rtl/snt_onehot_to_binary.sv
+      - ../../../../cxr/src/dsl/rtl/snt_valid_enable_gate.sv
+      - ../../../../cxr/src/dsl/rtl/snt_val_ena_priority_encoder.sv
+      - ../../../../cxr/src/dsl/rtl/snt_val_ena_array_fence.sv
+      - ../../../../cxr/src/dsl/rtl/snt_val_ena_double_buffer.sv
+      - ../../../../cxr/src/dsl/rtl/snt_expand_valid_enable.sv
+      - ../../../../cxr/src/dsl/rtl/snt_pulse_fence.sv
+      - ../../../../cxr/src/dsl/rtl/snt_enable_counter_gate.sv
+      - ../../../../cxr/src/dsl/rtl/snt_piso_circular_gate.sv
+      - ../../../../cxr/src/dsl/rtl/snt_arbiter_round_robin.sv
+      - ../../../../cxr/src/dsl/rtl/snt_pipeline_stage.sv
+      - ../../../../cxr/src/dsl/rtl/snt_adder_tree_level.sv
+      - ../../../../cxr/src/dsl/rtl/snt_pipelined_adder_tree_exposed.sv
+      - ../../../../cxr/src/dsl/rtl/snt_bitonic_sorter.sv
+      - ../../../../cxr/src/dsl/rtl/snt_grey_converter.sv
+      - ../../../../cxr/src/dsl/rtl/snt_async_fifo.sv
+      - ../../../../cxr/src/dsl/rtl/snt_sipo.sv
+      - ../../../../cxr/src/dsl/rtl/snt_piso.sv
+      - ../../../../cxr/src/dsl/rtl/snt_piso_pull.sv
+      - ../../../../cxr/src/dsl/rtl/pulp/pulp_addr_decode_napot.sv
+      - ../../../../cxr/src/dsl/rtl/pulp/pulp_addr_decode.sv
+      - ../../../../cxr/src/dsl/rtl/ahb/snt_ahb_sram_bridge.v
+      - ../../../../cxr/src/dsl/rtl/axi4/snt_axi4_pkg.sv
+      - ../../../../cxr/src/dsl/rtl/axi4/snt_axi4_if.sv
+      - ../../../../cxr/src/dsl/rtl/apb5/snt_apb5_if.sv
+      - ../../../../cxr/src/dsl/rtl/ahb/snt_ahb_pkg.sv
+      - ../../../../cxr/src/dsl/rtl/ahb/snt_ahb_if.sv
+      - ../../../../cxr/src/dsl/rtl/ahb/snt_ahb_multiplexed_if.sv
+    file_type: systemVerilogSource
+  cxr_base_rtl:
+    files:
+    - ../../../../cxr/src/rtl/cor/cxr_cor_autogen_specs_pkg.sv
+    - ../../../../cxr/src/rtl/cor/cxr_cor_autogen_params_pkg.sv
+    - ../../../../cxr/src/rtl/cor/cxr_cor_autogen_enums_pkg.sv
+    - ../../../../cxr/src/rtl/cor/cxr_cor_autogen_dtypes_pkg.sv
+    - ../../../../cxr/src/rtl/cor/cxr_cor_autogen_structs_pkg.sv
+    file_type: systemVerilogSource
+  cxr_ssm_rtl:
+    files:
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_acc.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_pipeline_ored.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_atu.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_csr.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_dtu.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_mcc.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_opd.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_iso.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_ops.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_pop.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_rsu.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm.sv
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_model.sv
+    file_type: systemVerilogSource
+  cxr_ssm_wrp:
+    files:
+    - ../../../../cxr/src/wrp/cxr_ssm_wrp.sv
+    file_type: systemVerilogSource
+
+  snt_base_tb:
+    files:
+    # - ../../../../cxr/src/dsl/tb/snt_tb_util_pkg.sv
+    # - ../../../../cxr/src/dsl/tb/base/snt_tb_base_pkg.sv
+    file_type: systemVerilogSource
+  cxr_base_tb:
+    files:
+    - ../../../../cxr/src/dsl/tb/snt_tb_util_pkg.sv
+    - ../../../../cxr/src/dsl/tb/snt_tb_std_if.sv
+    - ../../../../cxr/src/dsl/tb/base/snt_tb_base_pkg.sv
+    - ../../../../cxr/src/dsl/tb/axi4/snt_tb_axi4_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_autogen_specs_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_autogen_params_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_autogen_enums_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_autogen_dtypes_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_autogen_structs_pkg.sv
+    - ../../../../cxr/src/tb/cor/cxr_tb_cor_v_if.sv
+    - ../../../../cxr/src/tb/base/cxr_tb_base_pkg.sv
+    - ../../../../cxr/src/tb/cor/if/std/cxr_tb_std_driver_pkg.sv
+    file_type: systemVerilogSource
+  cxr_ssm_tb:
+    files:
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_bnk.v
+    - ../../../../cxr/src/rtl/ssm/cxr_ssm_bnk_wrp.sv
+    - ../../../../cxr/src/tb/cor/if/mem/cxr_tb_mem_pkg.sv
+    - ../../../../cxr/src/tb/cor/if/irq/cxr_tb_irq_pkg.sv
+    - ../../../../cxr/src/tb/cor/dut/ssm/cxr_tb_ssm_pkg.sv
+    - ../../../../cxr/src/tb/cor/if/cxr_tb_mem_if.sv
+    - ../../../../cxr/src/tb/cor/cov/ssm/cxr_tb_ssm_cov.sv
+    - ../../../../cxr/src/tb/cor/dut/ssm/cxr_tb_ssm.sv
+    file_type: systemVerilogSource
+  
+parameters:
+  BASE:
+    datatype: bool
+    paramtype: vlogdefine
+    default: true
+
+targets:
+  default:
+    filesets:
+    - gf_22fdsoi_rtl
+    - dsl_rtl
+    - snt_base_tb
+    - cxr_base_rtl
+    - cxr_ssm_rtl
+    - cxr_ssm_wrp
+    - cxr_base_tb
+    - cxr_ssm_tb
+  sim:
+    filesets:
+    - gf_22fdsoi_rtl
+    - dsl_rtl
+    - snt_base_tb
+    - cxr_base_rtl
+    - cxr_ssm_rtl
+    - cxr_ssm_wrp
+    - cxr_base_tb
+    - cxr_ssm_tb
+    parameters:
+    - BASE
+    toplevel:
+      - cxr_tb_ssm
+    tools:
+      vcs:
+        vcs_options:
+          - -override_timescale=1ns/1ps
+          - -assert disable_cover
+          - -assert svaext
+          - -debug_access+all+dmptf
+          - -fgp
+          - -full64
+          - -kdb
+          - -notice
+          - -ntb_opts uvm-1.2
+          - -race=all
+          - -xlrm uniq_prior_final
+          - -CFLAGS "-std=c++14 -pthread"
+          - -LDFLAGS "-pthread -lutil"
+          - +lint=TFIPC-L
+          - -V

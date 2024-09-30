@@ -36,6 +36,7 @@ filesets:
     - x-heep:ip:fast_intr_ctrl
     - x-heep:ip:obi_fifo
     - x-heep:ip:pdm2pcm
+    - synthara:cxr:cxr
     files:
     - hw/core-v-mini-mcu/core_v_mini_mcu.sv
     - hw/core-v-mini-mcu/cpu_subsystem.sv
@@ -349,13 +350,38 @@ targets:
          - -full64
          - -kdb
          - -notice
-         - -ntb_opts error
+         - -ntb_opts uvm-1.2
          - -race=all
          - -xlrm uniq_prior_final
          - -CFLAGS "-std=c++14 -pthread"
          - -LDFLAGS "-pthread -lutil"
          - +lint=TFIPC-L
          - -V
+         - +define+BASE
+         - +incdir+../../../../cxr/scripts/autogen/src/autogen/templates
+         - +incdir+../../../../cxr/src/dsl/docs
+         - +incdir+../../../../cxr/src/dsl/filelist
+         - +incdir+../../../../cxr/src/dsl/tb
+         - +incdir+../../../../cxr/src/dsl/tb/ahb
+         - +incdir+../../../../cxr/src/dsl/tb/apb5
+         - +incdir+../../../../cxr/src/dsl/tb/axi4
+         - +incdir+../../../../cxr/src/dsl/tb/base
+         - +incdir+../../../../cxr/src/tb/base
+         - +incdir+../../../../cxr/src/tb/cor/dut/cxb
+         - +incdir+../../../../cxr/src/tb/cor/dut/cxb_ssm
+         - +incdir+../../../../cxr/src/tb/cor/dut/mem
+         - +incdir+../../../../cxr/src/tb/cor/dut/ssm
+         - +incdir+../../../../cxr/src/tb/cor/if/cxb_jtag_read
+         - +incdir+../../../../cxr/src/tb/cor/if/cxb_jtag_status
+         - +incdir+../../../../cxr/src/tb/cor/if/cxb_mem
+         - +incdir+../../../../cxr/src/tb/cor/if/irq
+         - +incdir+../../../../cxr/src/tb/cor/if/jtag_cxb_cmd
+         - +incdir+../../../../cxr/src/tb/cor/if/jtag_cxb_config
+         - +incdir+../../../../cxr/src/tb/cor/if/mem
+         - +incdir+../../../../cxr/src/tb/cor/if/mem_cxb
+         - +incdir+../../../../cxr/src/tb/cor/if/mem_cxb_irq
+         - +incdir+../../../../cxr/src/tb/cor/if/std
+         - +incdir+../../../../cxr/utils
       xcelium:
         xrun_options:
         - -vtimescale 1ns/10ps
