@@ -1,8 +1,11 @@
 from mako.template import Template
+import sys
+import os
 
-# Define the paths
-template_path = '/home/vcl/Desktop/workspace/xheep/chimera/design/subsys/xhp/hw/synthara/memory_subsystem.sv.tpl'
-output_path = '/home/vcl/Desktop/workspace/xheep/chimera/design/subsys/xhp/hw/synthara/memory_subsystem.sv'
+# Define the paths relative to the folder where this script is
+script_dir = os.path.dirname(os.path.abspath(__file__))
+template_path = os.path.join(script_dir, 'memory_subsystem.sv.tpl')
+output_path = os.path.join(script_dir, 'memory_subsystem.sv')
 
 # Load the template
 with open(template_path, 'r') as template_file:
@@ -11,20 +14,12 @@ with open(template_path, 'r') as template_file:
 # Create a Mako template
 template = Template(template_content)
 
-# Render the template with any necessary context variables
-# For example, if you have variables to pass, you can do it like this:
-# rendered_content = template.render(variable1=value1, variable2=value2)
-import sys
-import os
-
 # Add the parent directory to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../util')))
 
 # Now you can import the modules
 from x_heep_gen.linker_section import LinkerSection
 from x_heep_gen.system import XHeep, BusType
-
-# Your code here
 
 system = XHeep(BusType.NtoM)
 
