@@ -111,6 +111,7 @@ filesets:
     file_type: systemVerilogSource
   cxr_base_tb:
     files:
+    - /opt/eda/xilinx/tools/Vivado/2021.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
     - ../../../../cxr/src/dsl/tb/snt_tb_util_pkg.sv
     - ../../../../cxr/src/dsl/tb/snt_tb_std_if.sv
     - ../../../../cxr/src/dsl/tb/base/snt_tb_base_pkg.sv
