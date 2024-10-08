@@ -2,10 +2,13 @@ from mako.template import Template
 import sys
 import os
 
+
+# This script is just meant to test the formatting of the output file memory_subsystem_temp.sv 
+# When launching the make mcu-gen-snt, the formatted file will be in another file path #
 # Define the paths relative to the folder where this script is
 script_dir = os.path.dirname(os.path.abspath(__file__))
 template_path = os.path.join(script_dir, 'memory_subsystem.sv.tpl')
-output_path = os.path.join(script_dir, 'memory_subsystem.sv')
+output_path = os.path.join(script_dir, 'memory_subsystem_temp.sv')
 
 # Load the template
 with open(template_path, 'r') as template_file:
