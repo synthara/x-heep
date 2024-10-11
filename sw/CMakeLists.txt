@@ -449,6 +449,10 @@ add_custom_command(TARGET ${MAINFILE}.elf POST_BUILD
         COMMAND ${CMAKE_OBJDUMP} -S  ${MAINFILE}.elf > ${MAINFILE}.S
         COMMENT "Invoking: Disassemble")
 
+add_custom_command(TARGET ${MAINFILE}.elf POST_BUILD
+        COMMAND ${CMAKE_READELF} -aW  ${MAINFILE}.elf > ${MAINFILE}.readelf
+        COMMENT "Invoking: readelf")
+
 # Post processing command to create a hex file
 if((${LINKER} STREQUAL "flash_load") OR (${LINKER} STREQUAL "flash_exec"))
     add_custom_command(TARGET ${MAINFILE}.elf POST_BUILD
