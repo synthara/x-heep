@@ -91,12 +91,12 @@ task tb_writetoSram${bank.name()};
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.xpm_memory_spram_inst_${bank.name()}.xpm_memory_base_inst.mem[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram${bank.name()}_i.ram_bank_i.uut.mem_core_array[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.xpm_memory_spram_inst_${bank.name()}.xpm_memory_base_inst.mem[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram${bank.name()}_i.ram_bank_i.uut.mem_core_array[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.xpm_memory_spram_inst_${bank.name()}.xpm_memory_base_inst.mem[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram${bank.name()}_i.ram_bank_i.uut.mem_core_array[addr] = {
     val3, val2, val1, val0
   };
 `endif

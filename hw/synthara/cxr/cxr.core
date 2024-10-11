@@ -19,6 +19,7 @@ filesets:
       - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_hpk_csl/GF22FDX_SC7P5T_116CPP_HPK_CSL_FDK_RELV03R50/model/verilog/GF22FDX_SC7P5T_116CPP_HPK_CSL.v
       - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_hpkcustom_csl/GF22FDX_SC7P5T_116CPP_HPKCUSTOM_CSL_FDK_RELV00R40/model/verilog/GF22FDX_SC7P5T_116CPP_HPKCUSTOM_CSL.v
       - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fx/std_cells/invecas/v-logic_in_gf22fdx_sc7p5t_116cpp_lpk_csl/GF22FDX_SC7P5T_116CPP_LPK_CSL_FDK_RELV03R40/model/verilog/GF22FDX_SC7P5T_116CPP_LPK_CSL.v
+      - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fdx/memories/database/synopsys/s1dclssd4ULTRALOW1p8192x32m16b8w1c1p0d0l0rm0sdrw01/
     file_type: systemVerilogSource
   dsl_rtl:
     files:

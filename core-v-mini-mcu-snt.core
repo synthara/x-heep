@@ -38,6 +38,7 @@ filesets:
     - x-heep:ip:pdm2pcm
     - synthara:cxr:cxr
     files:
+    - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fdx/memories/database/synopsys/s1dclssd4ULTRALOW1p8192x32m16b8w1c1p0d0l0rm0sdrw01/s1dclssd4ULTRALOW1p8192x32m16b8w1c1p0d0l0rm0sdrw01.v
     - hw/core-v-mini-mcu/core_v_mini_mcu.sv
     - hw/core-v-mini-mcu/cpu_subsystem.sv
     - hw/core-v-mini-mcu/memory_subsystem.sv
@@ -55,6 +56,7 @@ filesets:
     depend:
     - pulp-platform.org::tech_cells_generic
     files:
+    - hw/synthara/snt_sram_wrapper.sv
     - hw/simulation/sram_wrapper.sv
     - hw/simulation/pad_cell_bypass_input.sv
     - hw/simulation/pad_cell_bypass_output.sv
@@ -358,6 +360,8 @@ targets:
          - +lint=TFIPC-L
          - -V
          - +define+BASE
+         - +define+INVECAS 
+         - +define+VIRAGE_FAST_VERILOG
          - +incdir+../../../../cxr/scripts/autogen/src/autogen/templates
          - +incdir+../../../../cxr/src/dsl/docs
          - +incdir+../../../../cxr/src/dsl/filelist
