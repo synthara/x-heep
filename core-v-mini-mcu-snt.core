@@ -357,11 +357,14 @@ targets:
          - -xlrm uniq_prior_final
          - -CFLAGS "-std=c++14 -pthread"
          - -LDFLAGS "-pthread -lutil"
+         - -debug_region+cell
          - +lint=TFIPC-L
+         - +UVM_VERBOSITY=UVM_HIGH
          - -V
          - +define+BASE
          - +define+INVECAS 
          - +define+VIRAGE_FAST_VERILOG
+         - +define+MEM_CHECK_OFF
          - +incdir+../../../../cxr/scripts/autogen/src/autogen/templates
          - +incdir+../../../../cxr/src/dsl/docs
          - +incdir+../../../../cxr/src/dsl/filelist
