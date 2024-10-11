@@ -86,11 +86,16 @@ set( CMAKE_OBJCOPY      ${GCC_CROSS_COMPILE}objcopy
 if ($ENV{COMPILER} MATCHES "gcc")
      set( CMAKE_OBJDUMP      ${GCC_CROSS_COMPILE}objdump
           CACHE FILEPATH "The toolchain objdump command " FORCE )
+     set( CMAKE_READELF      ${GCC_CROSS_COMPILE}readelf
+          CACHE FILEPATH "The toolchain readelf command " FORCE )
 elseif ($ENV{COMPILER} MATCHES "clang")
      set( CMAKE_OBJDUMP      ${CLANG_CROSS_COMPILE}llvm-objdump
           CACHE FILEPATH "The toolchain objdump command " FORCE )
+     set( CMAKE_READELF      ${CLANG_CROSS_COMPILE}llvm-readelf
+          CACHE FILEPATH "The toolchain readelf command " FORCE )
 endif()
 #message( "OBJDUMP PATH: ${CMAKE_OBJDUMP}" )
+#message( "OBJDUMP PATH: ${CMAKE_READELF}" )
 
 # Dealing with GDB into CMake - TBD
 #set( CMAKE_C_GDB        ${CROSS_COMPILE}gdb 
