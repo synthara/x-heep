@@ -110,6 +110,9 @@ class XHeep():
 
         # Add all new banks if no error was raised
         self._ram_banks += banks
+        
+        if key == "cxr_banks":
+            self._cxr_banks += banks
 
     
 
