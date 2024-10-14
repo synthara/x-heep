@@ -107,12 +107,9 @@ class XHeep():
         
         if section_name != "":
             self.add_linker_section_for_banks(banks, section_name)
-        
-        if key == "cxr_banks":
-            self._cxr_banks += banks
-        else:
-            # Add all new banks if no error was raised
-            self._ram_banks += banks
+
+        # Add all new banks if no error was raised
+        self._ram_banks += banks
 
     
 
