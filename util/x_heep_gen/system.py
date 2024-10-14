@@ -56,6 +56,7 @@ class XHeep():
 
         self._ram_start_address: int = ram_start_address
         self._ram_banks: List[Bank] = []
+        self._cxr_banks: List[Bank] = []
         self._ram_banks_il_idx: List[int] = []
         self._ram_banks_il_groups: List[ILRamGroup] = []
         self._il_banks_present: bool = False
@@ -75,7 +76,7 @@ class XHeep():
             self._override_numbanks_il = override.numbanks_il
 
 
-    def add_ram_banks(self, bank_sizes: "List[int]", section_name: str = ""):
+    def add_ram_banks(self, bank_sizes: "List[int]", section_name: str = "", key: str = ""):
         """
         Add ram banks in continuous address mode to the system.
         The bank size should be a power of two and at least 1kiB.
@@ -106,8 +107,12 @@ class XHeep():
         
         if section_name != "":
             self.add_linker_section_for_banks(banks, section_name)
-        # Add all new banks if no error was raised
-        self._ram_banks += banks
+        
+        if key == "cxr_banks":
+            self._cxr_banks += banks
+        else:
+            # Add all new banks if no error was raised
+            self._ram_banks += banks
 
     
 
@@ -213,6 +218,13 @@ class XHeep():
         :rtype: int
         """
         return len(self._ram_banks)
+    
+    def cxr_numbanks(self) -> int:
+        """
+        :return: the number of banks.
+        :rtype: int
+        """
+        return len(self._cxr_banks)
     
 
 
@@ -334,6 +346,13 @@ class XHeep():
         :rtype: Iterable[Bank]
         """
         return iter(self._ram_banks)
+    
+    def iter_cxr_banks(self) -> Iterable[Bank]:
+        """
+        :return: an iterator over all banks.
+        :rtype: Iterable[Bank]
+        """
+        return iter(self._cxr_banks)
 
 
 

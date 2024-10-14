@@ -107,7 +107,7 @@ def load_ram_configuration(system: XHeep, mem: hjson.OrderedDict):
         elif t == "continuous":
             banks: List[int] = []
             ram_list(banks, value)
-            system.add_ram_banks(banks, section_name)
+            system.add_ram_banks(banks, section_name, key)
 
 
 
