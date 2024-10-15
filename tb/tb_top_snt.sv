@@ -2,6 +2,8 @@
 // Solderpad Hardware License, Version 2.1, see LICENSE.md for details.
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.1
 
+import snt_tb_std_if::*;
+
 module tb_top_snt#(
     parameter COREV_PULP                  = 0,
     parameter FPU                         = 0,
@@ -213,6 +215,23 @@ module tb_top_snt#(
     assign rst_n_w = rst_n;
     assign boot_sel_w = boot_sel;
     assign execute_from_flash_w = execute_from_flash;
+
+    snt_std_if xhp_std();
+    snt_std_vif xhp_std_vif;
+
+    initial begin
+        xhp_std.clk    = clk;
+        xhp_std.resetn = rst_n;
+
+        xhp_std_vif = xhp_std;
+    end
+
+    initial begin: test_bench_entry_point
+
+        // ++++++++++ SYNTHARA ++++++++++ //
+        uvm_config_db#(snt_std_vif)::set(.cntxt(null), .inst_name("*"), .field_name("xhp_std"), .value(xhp_std));
+
+    end
 
     // wrapper for riscv, the memory system and stdout peripheral
     testharness#(
