@@ -38,6 +38,29 @@ filesets:
     - x-heep:ip:pdm2pcm
     - synthara:cxr:cxr
     files:
+    - ../rvv/lib/uvm_libs/uvml_hrtbt/uvml_hrtbt_pkg.sv
+    - ../rvv/lib/uvm_libs/uvml_trn/uvml_trn_pkg.sv
+    - ../rvv/lib/uvm_libs/uvml_logs/uvml_logs_pkg.sv
+    - ../rvv/lib/uvm_libs/uvml_sb/uvml_sb_pkg.sv
+    - ../rvv/lib/uvm_libs/uvml_mem/uvml_mem_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_clknrst/uvma_clknrst_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_interrupt/uvma_interrupt_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_obi_memory/src/uvma_obi_memory_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_debug/uvma_debug_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_core_cntrl/uvma_core_cntrl_pkg.sv
+    - ../rvv/lib/uvm_agents/uvma_rvfi/uvma_rvfi_pkg.sv
+    - ../rvv/lib/uvm_components/uvmc_rvfi_reference_model//uvmc_rvfi_reference_model_pkg.sv
+    - ../rvv/lib/uvm_components/uvmc_rvfi_scoreboard//uvmc_rvfi_scoreboard_pkg.sv
+    - ../rvv/cv32e20/vendor_lib/verilab/svlib/svlib/src/svlib_pkg.sv
+    - ../rvv/cv32e20/env/uvme/uvme_cv32e20_pkg.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_pkg.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_dut_wrap.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_tb.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_tb.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_dut_wrap.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_interrupt_assert.sv
+    - ../rvv/cv32e20/tb/uvmt/uvmt_cv32e20_debug_assert.sv
+    - tb/snt/chm_tb_cor_pkg.sv
     - /mnt/rhea_hdd_raid5/foundries/globalfoundries/gf22fdx/memories/database/synopsys/s1dclssd4ULTRALOW1p8192x32m16b8w1c1p0d0l0rm0sdrw01/s1dclssd4ULTRALOW1p8192x32m16b8w1c1p0d0l0rm0sdrw01.v
     - hw/core-v-mini-mcu/core_v_mini_mcu.sv
     - hw/core-v-mini-mcu/cpu_subsystem.sv
@@ -362,10 +385,58 @@ targets:
          - +lint=TFIPC-L
          - +UVM_VERBOSITY=UVM_HIGH
          - -V
+         - -lca
+         - +define++define+CV32E20_RVFI+RVFI
+         - +define+CV32E20_TRACE_EXECUTION
+         - +define+CV32E20_ASSERT_ON
+         - +define+UVM
+         - +define+VCS +define+GNT
+         - +define+__UVMT_CV32E20_TB_SV__
+         - +define+__UVMT_CV32E20_DUT_WRAP_SV__
          - +define+BASE
          - +define+INVECAS 
          - +define+VIRAGE_FAST_VERILOG
          - +define+MEM_CHECK_OFF
+         - +incdir+../../../../rvv/lib/dpi_dasm
+         - +incdir+../../../../rvv/lib/uvm_libs/uvml_hrtbt
+         - +incdir+../../../../rvv/lib/uvm_libs/uvml_trn
+         - +incdir+../../../../rvv/lib/uvm_libs/uvml_logs
+         - +incdir+../../../../rvv/lib/uvm_libs/uvml_sb
+         - +incdir+../../../../rvv/lib/uvm_libs/uvml_mem
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_clknrst
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_clknrst/cov
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_clknrst/seq
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_interrupt
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_interrupt/cov
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_interrupt/seq
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_obi_memory/src
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_obi_memory/src/comps
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_obi_memory/src/obj
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_obi_memory/src/seq
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_debug
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_debug/cov
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_debug/seq
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_core_cntrl
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_rvfi
+         - +incdir+../../../../rvv/lib/uvm_components/uvmc_rvfi_reference_model/
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_rvfi
+         - +incdir+../../../../rvv/lib/uvm_components/uvmc_rvfi_scoreboard/
+         - +incdir+../../../../rvv/vendor/riscv/riscv-isa-sim/disasm/
+         - +incdir+../../../../rvv/lib/uvm_agents/uvma_rvfi
+         - +incdir+../../../../rvv/cv32e20/vendor_lib/verilab/svlib/svlib/src
+         - +incdir+../../../../rvv/cv32e20/env/uvme
+         - +incdir+../../../../rvv/cv32e20/env/uvme/cov
+         - +incdir+../../../../rvv/cv32e20/env/uvme/vseq
+         - +incdir+../../../../rvv/cv32e20/tb/uvmt
+         - +incdir+../../../../rvv/cv32e20/tb/uvmt/../../tests/uvmt
+         - +incdir+../../../../rvv/cv32e20/tb/uvmt/../../tests/uvmt/base-tests
+         - +incdir+../../../../rvv/cv32e20/tb/uvmt/../../tests/uvmt/compliance-tests
+         - +incdir+../../../../rvv/cv32e20/tb/uvmt/../../tests/uvmt/vseq
+         - +incdir+../../../../rvv/cv32e20/tb
+         - +incdir+../../../../rvv/cv32e20/env/uvme
+         - +incdir+../../../../rvv/cv32e20/env/uvme/cov
+         - +incdir+../../../../rvv/cv32e20/env/uvme/vseq
+         - +incdir+../../../tb/snt
          - +incdir+../../../../cxr/scripts/autogen/src/autogen/templates
          - +incdir+../../../../cxr/src/dsl/docs
          - +incdir+../../../../cxr/src/dsl/filelist
