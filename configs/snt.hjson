@@ -3,6 +3,10 @@
     bus_type: "onetoM",
     ram_banks: {
         code_and_data: {
+            num: 4
+            sizes: [32]
+        }
+        cxr_banks: {
             num: 2
             sizes: [32]
         }

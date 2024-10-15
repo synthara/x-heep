@@ -144,6 +144,7 @@ mcu-gen:
 	$(MAKE) general-mcu-gen
 
 mcu-gen-snt:
+	$(eval X_HEEP_CFG=configs/snt.hjson)
 	$(MAKE) mem-snt-subsys
 	$(MAKE) general-mcu-gen
 
@@ -273,7 +274,7 @@ vivado-fpga-pgm:
 ## @section ASIC
 ## Note that for this step you need to provide technology-dependent files (e.g., libs, constraints)
 asic:
-	$(FUSESOC) --cores-root . run --no-export --target=asic_synthesis $(FUSESOC_FLAGS) --setup openhwgroup.org:systems:core-v-mini-mcu ${FUSESOC_PARAM} 2>&1 | tee builddesigncompiler.log
+	$(FUSESOC) --verbose --cores-root . run --no-export --target=asic_synthesis $(FUSESOC_FLAGS) --setup openhwgroup.org:systems:core-v-mini-mcu ${FUSESOC_PARAM} 2>&1 | tee builddesigncompiler.log
 
 openroad-sky130:
 	git checkout hw/vendor/pulp_platform_common_cells/*
