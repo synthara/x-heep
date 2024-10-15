@@ -62,7 +62,8 @@ module memory_subsystem
     assign ram_resp_o[i].rvalid = ram_valid_q[i];
   end
 
-%for i, bank in enumerate(xheep.iter_ram_banks()):
+
+%for i, bank in enumerate(list(xheep.iter_ram_banks())[:xheep.ram_numbanks() - xheep.cxr_numbanks()]):
   snt_sram_wrapper #(
       .ADDR_WIDTH (32'd32),
       .DATA_WIDTH(32'd32),
@@ -83,5 +84,26 @@ module memory_subsystem
   );
 
 %endfor
+
+% for i, bank in enumerate(list(xheep.iter_ram_banks())[xheep.ram_numbanks() - xheep.cxr_numbanks():]):
+  snt_cxr_wrapper #(
+      .ADDR_WIDTH (32'd32),
+      .DATA_WIDTH(32'd32),
+      .BE_WIDTH(4'd4),
+      .NumWords (${bank.size() // 4})
+  ) cxr${i}_i (
+      .clk_i(clk_cg[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}]),
+      .rst_ni(rst_ni),
+      .req_i(ram_req_i[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}].req),
+      .we_i(ram_req_i[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}].we),
+      .addr_i(ram_req_addr_${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}),
+      .wdata_i(ram_req_i[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}].wdata),
+      .be_i(ram_req_i[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}].be),
+      .pwrgate_ni(pwrgate_ni[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}]),
+      .pwrgate_ack_no(pwrgate_ack_no[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}]),
+      .set_retentive_ni(set_retentive_ni[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}]),
+      .rdata_o(ram_resp_o[${i + xheep.ram_numbanks() - xheep.cxr_numbanks()}].rdata)
+  );
+% endfor
 
 endmodule

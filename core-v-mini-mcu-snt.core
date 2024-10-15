@@ -57,6 +57,7 @@ filesets:
     - pulp-platform.org::tech_cells_generic
     files:
     - hw/synthara/snt_sram_wrapper.sv
+    - hw/synthara/snt_cxr_wrapper.sv
     - hw/simulation/sram_wrapper.sv
     - hw/simulation/pad_cell_bypass_input.sv
     - hw/simulation/pad_cell_bypass_output.sv
